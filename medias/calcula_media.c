@@ -10,31 +10,35 @@ float soma, media;
 
 void menu(void) {
 
-  char ch;
+  int opcao = 0;
 
   printf("1. Calcular média com 3 notas.\n");
   printf("2. Calcular média com 5 notas.\n");
-  printf("3. Sair");
+  printf("3. Sair\n");
+  
+  do {
+  
+    printf("\nEscolha sua opção: ");
+  
+    scanf("%d", &opcao);
 
-    ch = getchar();
+    switch(opcao) {
+      case 1:
+      add_3notas();
+      break;
 
-    switch(ch) {
-        case '1':
-        add_3notas();
-        break;
+      case 2:
+      add_5notas();
+      break;
 
-        case '2':
-        add_5notas();
-        break;
+      case 3:
+      exit(0);
 
-        case '3':
-        exit(0);
-
-        default:
-        printf("Escolha uma opção válida: 1, 2 ou 3.");
+      default:
+      printf("\n\nEscolha uma opção válida.\n"); 
 
     }
-  
+  } while (opcao!=1 && opcao!=2 && opcao!=3);
 }
 
   float add_3notas() {
